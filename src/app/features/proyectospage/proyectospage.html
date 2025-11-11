@@ -35,6 +35,17 @@
       }
     </ul>
   </div>
+
+  <div>
+    <h1>Listado de proyecto</h1>
+    <h2>Listado</h2>
+    <ul>
+      @for (proyecto of proyectos(); track $index) {
+        <li>{{ proyecto.nombre }} - {{ proyecto.descripcion }}</li>
+      }
+    </ul>
+  </div>
+
   
 
 </section>
