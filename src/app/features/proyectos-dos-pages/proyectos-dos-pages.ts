@@ -1,20 +1,21 @@
-// src/app/features/proyectos-dos-pages/proyectos-dos-pages.ts
-
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ListadoProyect } from '../proyectospage/Componentes/listado-proyecto/listado-proyect/listado-proyect';
-import { ProyectosService } from './services/proyecto-service'; 
+import { ProyectosService } from './services/proyecto-service'; // Asegúrate de que el nombre del servicio es correcto
+import { ListadoProyect } from '../proyectospage/Componentes/listado-proyect/listado-proyect'
+import { AddProyecto } from './add-proyecto/add-proyecto'; // Asumo que AddProyecto está en la carpeta de la página dos
 
 @Component({
-  selector: 'app-proyectos-dos-page',
+  selector: 'app-proyecto-dos-page',
   standalone: true,
-  imports: [ListadoProyect], 
-  templateUrl: './proyectos-dos-pages.html',
+  imports: [ListadoProyect, AddProyecto], 
+  templateUrl: './proyectos-dos-pages.html', 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProyectosDosPage {
+export class ProyectoDosPage {
+  proyectosService = inject(ProyectosService);
   
-  proyectosService = inject(ProyectosService); 
+  proyectos = this.proyectosService.proyectos; 
   
-  // Exponemos la señal del servicio a través de una propiedad llamada 'proyectos'
-  proyectos = this.proyectosService.proyectos; // <-- CORRECCIÓN
+  handleNewProyecto(newProyecto: any) {
+    this.proyectosService.addProyecto(newProyecto);
+  }
 }

@@ -1,9 +1,44 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ProyectosService } from '../services/proyecto-service'; 
+import { ChangeDetectionStrategy, Component, signal, inject, output } from '@angular/core';
+
+interface Proyecto {
+    id: number;
+    nombre: string;
+    descripcion: string;
+}
 
 @Component({
-  selector: 'app-add-proyecto',
-  imports: [],
-  templateUrl: './add-proyecto.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'add-proyecto',
+    standalone: true,
+    imports: [],
+    templateUrl: './add-proyecto.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AddProyecto { }
+export class AddProyecto {
+   
+    name = signal('');
+    descripcion = signal('');
+
+    newProyecto = output<Proyecto>(); 
+
+    addProyecto() {
+        const newProyecto: Proyecto = {
+            id: Math.floor(Math.random() * 1000),
+            nombre: this.name(),
+            descripcion: this.descripcion(),
+        };
+        
+        this.newProyecto.emit(newProyecto); 
+
+        this.name.set('');
+        this.descripcion.set('');
+    }
+
+    changeName(value: string) {
+        this.name.set(value);
+    }
+
+    changeDescription(value: string) {
+        this.descripcion.set(value);
+    }
+}

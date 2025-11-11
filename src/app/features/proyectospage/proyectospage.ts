@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { ListadoProyect } from './Componentes/listado-proyecto/listado-proyect/listado-proyect';
+import { ChangeDetectionStrategy, Component, signal, inject } from '@angular/core'; 
+import { ListadoProyect } from './Componentes/listado-proyect/listado-proyect';
+
+import { ProyectosService } from '../proyectos-dos-pages/services/proyecto-service'; 
 
 interface Proyecto {
   id: number;
@@ -8,41 +10,37 @@ interface Proyecto {
 }
 
 @Component({
-  selector: 'proyectos-page',
+  selector: 'app-proyectos-page',
   standalone: true,
   imports: [ListadoProyect],
   templateUrl: './proyectospage.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProyectosPage { 
+export class ProyectosPage {
+  private proyectosService = inject(ProyectosService); 
 
   name = signal('');
   description = signal('');
-  
-  
-  proyectos = signal<Proyecto[]>([
-    { id: 1, nombre: 'Proyecto Alfa', descripcion: 'Descripción inicial de Alfa' },
-    { id: 2, nombre: 'Proyecto Beta', descripcion: 'Descripción inicial de Beta' },
-    { id: 3, nombre: 'Proyecto Gamma', descripcion: 'Descripción inicial de Gamma' },
-  ]);
+
+  public proyectos = this.proyectosService.proyectos; 
 
   changeName(value: string) {
     this.name.set(value);
   }
-  
+
   changeDescription(value: string) {
     this.description.set(value);
   }
 
   addProyecto() {
-    const nuevosProyectos = [...this.proyectos()];
     const newProyecto: Proyecto = {
-      id: nuevosProyectos.length + 1,
+      id: Math.floor(Math.random() * 10000), 
       nombre: this.name(),
-      descripcion: this.description()
+      descripcion: this.description(),
     };
-    nuevosProyectos.push(newProyecto);
-    this.proyectos.set(nuevosProyectos);
+    
+    this.proyectosService.addProyecto(newProyecto); 
+    
     this.name.set('');
     this.description.set('');
   }

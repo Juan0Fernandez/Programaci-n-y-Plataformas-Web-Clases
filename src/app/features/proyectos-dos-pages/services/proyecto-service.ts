@@ -7,15 +7,22 @@ interface Proyecto {
 }
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 
 export class ProyectosService { 
 
-  constructor() { }
-  
-  proyectos = signal<Proyecto[]>([
-    { id: 1, nombre: 'Proyecto Uno', descripcion: 'El primer proyecto importante.' },
-    { id: 2, nombre: 'Proyecto Dos', descripcion: 'Este es el proyecto secundario.' },
-  ]);
+    constructor() { }
+    
+     public proyectos = signal<Proyecto[]>([
+        {
+            id: 1,
+            nombre: 'Proyecta A',
+            descripcion: 'descripcion'
+        }
+    ]);
+
+    addProyecto(newProyecto: Proyecto) {
+        this.proyectos.set([...this.proyectos(), newProyecto]);
+    }
 }

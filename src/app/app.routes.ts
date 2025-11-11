@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { Homepage } from './features/homepage/homepage';
 import { Perfilpage } from './features/perfilpage/perfilpage';
 import { ProyectosPage } from './features/proyectospage/proyectospage';
-import { ProyectosDosPage } from './features/proyectos-dos-pages/proyectos-dos-pages';
+import { ProyectoDosPage } from './features/proyectos-dos-pages/proyectos-dos-pages';
 
 export const routes: Routes = [
   { path: '', component: Homepage },
@@ -14,5 +14,5 @@ export const routes: Routes = [
     component: ProyectosPage },
     
   { path: 'proyectos-dos', 
-    component: ProyectosDosPage },
+    component: ProyectoDosPage },
 ];

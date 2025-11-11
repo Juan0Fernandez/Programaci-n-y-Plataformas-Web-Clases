@@ -1,7 +1,16 @@
-<h1>Listado de proyectos</h1>
+<h1>Listado Proyectos desde Servicio</h1>
 
-<listado-proyect
-    [listaName]="'Proyectos Obtenidos del Servicio'"
-    [proyectosList]="proyectos()" 
->
-</listado-proyect>
+<div>
+    <h3>Listado</h3>
+    <ul>
+      @for (proyecto of proyectos(); track $index) {
+        <li>{{ proyecto.nombre }} - {{ proyecto.descripcion }}</li>
+      }
+    </ul>
+  </div>
+
+
+<hr>
+<h2>Agregar Proyecto</h2>
+<add-proyecto (newProyecto)="handleNewProyecto($event)">
+</add-proyecto>

@@ -17,11 +17,9 @@ interface Proyecto {
   standalone: true 
 })
 
-export class ListadoProyect
-{ 
+export class ListadoProyect{ 
   listaName = input.required<string>();
   
   // Usando la interfaz completa
   proyectosList = input.required<Proyecto[]>();
-
 }
