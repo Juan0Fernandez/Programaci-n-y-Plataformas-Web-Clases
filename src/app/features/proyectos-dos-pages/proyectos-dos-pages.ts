@@ -11,7 +11,7 @@ import { AddProyecto } from './add-proyecto/add-proyecto'; // Asumo que AddProye
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProyectoDosPage {
-  proyectosService = inject(ProyectosService);
+  public proyectosService = inject(ProyectosService);
   
   proyectos = this.proyectosService.proyectos; 
   

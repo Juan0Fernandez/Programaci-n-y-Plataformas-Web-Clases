@@ -44,4 +44,11 @@ export class ProyectosPage {
     this.name.set('');
     this.description.set('');
   }
+
+  eliminarProyecto() {
+  throw new Error('Method not implemented.');
+  } 
+
+
+
 }

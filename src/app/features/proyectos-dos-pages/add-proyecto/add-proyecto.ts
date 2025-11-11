@@ -1,5 +1,6 @@
 import { ProyectosService } from '../services/proyecto-service'; 
 import { ChangeDetectionStrategy, Component, signal, inject, output } from '@angular/core';
+import { reqHandler } from '../../../../server';
 
 interface Proyecto {
     id: number;
@@ -20,6 +21,7 @@ export class AddProyecto {
     descripcion = signal('');
 
     newProyecto = output<Proyecto>(); 
+    removeProyecto = output<number>();
 
     addProyecto() {
         const newProyecto: Proyecto = {
@@ -40,5 +42,9 @@ export class AddProyecto {
 
     changeDescription(value: string) {
         this.descripcion.set(value);
+    }
+
+    dellProyecto(id: number) {
+        this.removeProyecto.emit(id);
     }
 }

@@ -11,5 +11,8 @@
 
 
 <hr>
-<add-proyecto (newProyecto)="handleNewProyecto($event)">
+<add-proyecto 
+(newProyecto)="proyectosService.addProyecto($event)"
+(removeProyecto)="proyectosService.removeFirstProyecto()" 
+>
 </add-proyecto>
