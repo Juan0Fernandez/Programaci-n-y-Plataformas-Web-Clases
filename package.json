@@ -2,13 +2,14 @@
   "name": "mi-app-angular",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:mi-app-angular": "node dist/mi-app-angular/server/server.mjs"
-  },
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "serve:ssr:mi-app-angular": "node dist/mi-app-angular/server/server.mjs",
+  "deploy": "ng build --output-path docs --base-href /Programaci-n-y-Plataformas-Web-Clases/"
+},
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
