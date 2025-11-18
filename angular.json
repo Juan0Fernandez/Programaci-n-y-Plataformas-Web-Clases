@@ -50,7 +50,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/Programaci-n-y-Plataformas-Web-Clases/",
+              "baseHref": "/",
               "deployUrl": "/Programaci-n-y-Plataformas-Web-Clases/"
             },
             "development": {
