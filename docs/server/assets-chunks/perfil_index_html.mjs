@@ -14,6 +14,6 @@ export default `<!DOCTYPE html><html lang="en" data-beasties-container><head>
 </button><button jsaction="click:;"> Cambiar edad a 18
 </button><button jsaction="click:;"> Reset
 </button></app-perfilpage><!----></app-root>
-<link rel="modulepreload" href="/Programaci-n-y-Plataformas-Web-Clases/chunk-L7CDKVRN.js"><script src="/Programaci-n-y-Plataformas-Web-Clases/main-I43EHNT7.js" type="module"></script>
+<link rel="modulepreload" href="/Programaci-n-y-Plataformas-Web-Clases/chunk-L7CDKVRN.js"><script src="/Programaci-n-y-Plataformas-Web-Clases/main-JGZJSPEE.js" type="module"></script>
 
 <script id="ng-state" type="application/json">{"__nghData__":[{},{"c":{"1":[{"i":"c3985389342","r":1}]}}]}</script></body></html>`;
